@@ -33,6 +33,7 @@ subjects1_listbox.pack()
 
 subjects1_listbox.place(relx=0.6, rely=0.75, anchor='sw')
 
+
 OptionList = [
 "1",
 "2"
@@ -40,11 +41,27 @@ OptionList = [
 variable = tk.StringVar(win)
 variable.set(OptionList[0])
 
-opt = tk.OptionMenu(win, variable, *OptionList)
+def callback(selection):
+
+    if variable.get() == '2':
+        subjects1_listbox = tk.Listbox(win, width=50, height=20)
+        for i in range(len(subjects2)):
+            subjects1_listbox.insert(i, subjects2[i])
+
+        subjects1_listbox.pack()
+
+        subjects1_listbox.place(relx=0.6, rely=0.75, anchor='sw')
+
+    print(variable.get())
+
+
+opt = tk.OptionMenu(win, variable, *OptionList, command=callback)
 opt.config(width=6)
 
 opt.pack()
 opt.place(relx=0.5, rely=0.15, anchor='sw')
+
+
 
 l2 = tk.Label(win, text='Оберіть семестр')
 l2.place(relx=0.5, rely=0.1, anchor='sw')
