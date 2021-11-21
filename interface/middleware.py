@@ -22,5 +22,4 @@ def get_all_teachers():
     return all_teachers
 
 
-teachers = get_all_teachers()
-print(teachers)
+

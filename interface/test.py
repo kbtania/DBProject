@@ -1,4 +1,5 @@
 import tkinter as tk
+import middleware
 
 def load_teachers():
     print('Loading list of teachers...')
@@ -10,3 +11,5 @@ btn1 = tk.Button(win, text='Завантажити', command=load_teachers)
 btn1.pack()
 
 win.mainloop()
+teachers = middleware.get_all_teachers()
+
